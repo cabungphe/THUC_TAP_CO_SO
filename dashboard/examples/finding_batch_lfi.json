@@ -1,0 +1,31 @@
+{
+  "batch_id": "B-LFI-LAZYWEB-001",
+  "source_revision": "lazyweb-page.php-sha256:98401f552f33eacb5b4ed3b4b72c4b36e0ba0d7ee069b04127c5fa9c04adb536",
+  "metadata": {
+    "origin": "Agent 1 test fixture in Agent 2 FindingBatch format",
+    "synthetic": true,
+    "source_root": "D:/AI_Pentest/lazyweb",
+    "description": "Dữ liệu đầu vào giả lập để kiểm thử phân tích LFI và xuất chỉ dẫn cho Agent 3; không phải kết quả quét HTTP thực tế."
+  },
+  "findings": [
+    {
+      "finding_id": "F-LFI-LAZYWEB-001",
+      "vulnerability_type": "lfi",
+      "endpoint": "/page.php",
+      "method": "GET",
+      "parameter": {
+        "name": "page",
+        "location": "query"
+      },
+      "evidence": {
+        "summary": "Kịch bản giả lập Agent 1: GET /page.php?page=LICENSE trả nội dung MIT License của file LICENSE trong source root, thay vì chỉ nạp một trang được cho phép. Không có yêu cầu HTTP thực tế tới lab. Đây là dữ liệu mẫu kiểm tra Local File Inclusion qua query page; Agent 2 cần tự đọc page.php, helper get(), init.php và AumWAF để xác minh luồng dữ liệu và giới hạn tác động. Không suy diễn khả năng đọc file ngoài source root hay thực thi mã từ ví dụ này.",
+        "final_verdict": "vulnerable",
+        "request_ref": "synthetic-lfi-case-001",
+        "request_line": "GET /page.php?page=LICENSE HTTP/1.1",
+        "response_indicator": "MIT License",
+        "synthetic": true,
+        "runtime_verified": false
+      }
+    }
+  ]
+}

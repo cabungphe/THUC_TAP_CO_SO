@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+node_modules/
+.agent3-runs/
+.report-runs/
+.env
+.venv/

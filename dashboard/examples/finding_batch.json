@@ -1,0 +1,24 @@
+{
+  "batch_id": "B-001",
+  "source_revision": "local-snapshot-001",
+  "metadata": {
+    "origin": "Agent 1 finalized session"
+  },
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "vulnerability_type": "sqli",
+      "endpoint": "/login",
+      "method": "POST",
+      "parameter": {
+        "name": "username",
+        "location": "body"
+      },
+      "evidence": {
+        "summary": "Agent 1 and pentester finalized this endpoint as vulnerable.",
+        "request_ref": "session-001-step-07",
+        "response_ref": "session-001-step-07-response"
+      }
+    }
+  ]
+}
